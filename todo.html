@@ -2,6 +2,20 @@
 <html>
 <head>
   <title>todo mvc</title>
+  <style>
+    .title-box{
+      display: flex;
+      justify-content: space-between;
+      width: 500px;
+    }
+    .title-box button {
+      width: 50px;
+      height: 50px;
+    }
+    .hidden {
+      visibility: hidden;
+    }
+  </style>
 </head>
 <body>
   <article class="todo-app">
@@ -12,11 +26,11 @@
       </label>
       <button type="submit">등록</button>      
     </form>
-
-    <h4>해야할 일들</h4>
-    <ul class="todo-list">
-      <!-- 템플릿으로 렌더링 <li>할</li> -->
-    </ul>
+    <div class="folding">
+      <ul class="todo-list">
+        <!-- 템플릿으로 렌더링 <li>할</li> -->
+      </ul>
+    </div>
   </article>
   <script src="./FoldingView.js"></script>
   <script src="./FormView.js"></script>

@@ -28,7 +28,7 @@ const todoModel = new TodoModel();
 
 const formView = new FormView('.todo-app .user-form');
 const listView = new ListView('.todo-app .todo-list');
-const folidingView = new FolidingView('.todo-app .user-form');
+const folidingView = new FolidingView('.folding');
 
 const todoView = {
   formView,
