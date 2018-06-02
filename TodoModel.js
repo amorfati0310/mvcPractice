@@ -8,7 +8,8 @@ class TodoModel {
     this.todoId++;
   }
   addTodo(text) {
-    this.todos.set(this.todoId, { text });
+    const todo = {text, completed: 'false'}
+    this.todos.set(this.todoId, todo);
     this.addCounter();
     this.notifyUpdate(this.todos)
   }

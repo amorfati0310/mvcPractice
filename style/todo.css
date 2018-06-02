@@ -14,7 +14,7 @@ li {
   display: flex;
   align-items: center;
   box-sizing: border-box;
-  padding-left: 40px;
+  justify-content: space-between;
 }
 
 .wrapper {
@@ -43,6 +43,8 @@ form {
 label {
   margin-top: 20px;
   margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: 500;
 }
 
 .input-box {
@@ -65,8 +67,26 @@ label {
 form input {
   width: 300px;
   height: 40px;
-  border-radius: 10px;
+  border-radius: 10px 0 0 10px;
   padding: 11px 10px 11px 13px;
   margin: 0;
   box-sizing: border-box;
+}
+
+form button {
+  border-radius: 0 10px 10px 0px;
+  background-color: #364fc7;
+  color: #fff;
+}
+
+
+.complete-btn,.delete-btn {
+  border-radius: 50%;
+}
+.delete-btn {
+  visibility: hidden;
+  color: red;
+}
+li:hover .delete-btn{
+  visibility: initial;
 }

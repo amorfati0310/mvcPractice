@@ -23,9 +23,12 @@ Event listener 등록.
 */
 
 //Controller, View의 존재를 전혀 모르게 구현.
+const listItemTemplate = `
+  <li><button class="complete-btn"></button><p class="todo-text"></p><button class="delete-btn">X</button></li>
+`
+
 
 const todoModel = new TodoModel();
-
 const formView = new FormView('.todo-app .user-form');
 const listView = new ListView('.todo-app .todo-list');
 const folidingView = new FolidingView('.folding');
