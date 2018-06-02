@@ -3,6 +3,8 @@ class TodoModel {
     this.todoId = 1;
     this.todos = new Map();
     this.notifyUpdate = null;
+    this.updateTodo = null;
+    this.deleteEl = null;
   }
   addCounter() {
     this.todoId++;
@@ -20,5 +22,9 @@ class TodoModel {
     const todo = this.todos.get(id)
     todo.completed = !todo.completed;
     this.updateTodo(todo)
+  }
+  deleteTodo(id){
+    this.todos.delete(id)
+    this.deleteEl(id)
   }
 }

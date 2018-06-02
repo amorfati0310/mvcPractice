@@ -35,11 +35,11 @@ class ListView {
     const completeBtn= e.target
     const todoId = +completeBtn.parentElement.id.match(/\d/)[0]
     this.updateCompleteState(todoId)
-    // completeBtn.innerText = "V"
-    // completeBtn.nextElementSibling.classList.add('completed')
   }
   handleDeleteBtnClicked(e){
-    console.dir(e.target)
+    const deleteBtn= e.target
+    const todoId = +deleteBtn.parentElement.id.match(/\d/)[0]
+    this.deleteTodo(todoId)
   }
   getUpdatedTodo(todo){
     const updatedTodo = this.el.querySelector(`#todo-${todo.id}`)
@@ -53,5 +53,9 @@ class ListView {
       completedBtn.innerText =""
       todoTextEL.classList.remove('completed')
     } 
+  }
+  deleteTodo(todoId){
+    const willRemovedTodo = this.el.querySelector(`#todo-${todoId}`)
+    willRemovedTodo.remove()
   }
 }
