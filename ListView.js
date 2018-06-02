@@ -3,6 +3,7 @@ class ListView {
     this.el = null;
     this.list = null;
     this.init(selector);
+    this.updateCompleteState = null;
   } 
   init(selector){
     this.el = document.querySelector(selector)
@@ -17,8 +18,8 @@ class ListView {
   }
   makeTemplate(list){
     let template = ``;
-    list.forEach((todo,i)=> {
-      template+= `<li><button class="complete-btn"></button><p class="todo-text">${todo.text}</p><button class="delete-btn">X</button></li>`
+    list.forEach((todo)=> {
+      template+= `<li id=todo-${todo.id}><button class="complete-btn"></button><p class="todo-text">${todo.text}</p><button class="delete-btn">X</button></li>`
     });
     return template;
   }
@@ -32,10 +33,25 @@ class ListView {
   }
   handleCompleteBtnClicked(e){
     const completeBtn= e.target
-    completeBtn.innerText = "V"
-    completeBtn.nextElementSibling.classList.add('completed')
+    const todoId = +completeBtn.parentElement.id.match(/\d/)[0]
+    this.updateCompleteState(todoId)
+    // completeBtn.innerText = "V"
+    // completeBtn.nextElementSibling.classList.add('completed')
   }
   handleDeleteBtnClicked(e){
     console.dir(e.target)
+  }
+  getUpdatedTodo(todo){
+    const updatedTodo = this.el.querySelector(`#todo-${todo.id}`)
+    const completedBtn = updatedTodo.firstElementChild
+    const todoTextEL = completedBtn.nextElementSibling 
+    if(todo.completed){
+      completedBtn.innerText = "V"
+      todoTextEL.classList.add('completed')
+    } 
+    else{
+      completedBtn.innerText =""
+      todoTextEL.classList.remove('completed')
+    } 
   }
 }
