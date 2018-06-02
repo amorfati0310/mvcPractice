@@ -90,3 +90,7 @@ form button {
 li:hover .delete-btn{
   visibility: initial;
 }
+
+.completed {
+  text-decoration-line: line-through;
+}
