@@ -1,7 +1,7 @@
 class FolidingView {
   constructor(selector){
     this.folding = document.querySelector(selector);
-    this.buttonText = "접기"
+    this.buttonText = "-"
     this.isfoldingStateOpen = true  
     this.foldingButton = null;
     this.children = null; 
@@ -29,7 +29,7 @@ class FolidingView {
     this.isfoldingStateOpen = !this.isfoldingStateOpen   
   }
   updateBtnText(state){
-    this.buttonText = state ? "접기" : "열기"
+    this.buttonText = state ? "-" : "+"
   }
   updateView(){
     this.foldingButton.innerText = this.buttonText
